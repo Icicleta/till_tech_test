@@ -3,16 +3,28 @@ require 'bill'
 
 describe Bill do
 
-  it 'has a name of place' do
-    expect(subject.coffee_info).to include 'shopName' => 'The Coffee Connection'
+  context 'content fixed info' do
+
+    it 'name of place' do
+      expect(subject.coffee_info).to
+      include 'shopName' => 'The Coffee Connection'
+    end
+
+    it 'address' do
+      expect(subject.coffee_info).to include 'address' => '123 Lakeside Way'
+    end
+
+    it 'phone' do
+      expect(subject.coffee_info).to include 'phone' => '16503600708'
+    end
+
   end
 
-  it 'address' do
-    expect(subject.coffee_info).to include 'address' => '123 Lakeside Way'
-  end
+  # context 'content order info' do
 
-  it 'phone' do
-    expect(subject.coffee_info).to include 'phone' => '16503600708'
-  end
+  #   it 'name' do
 
+  #   end
+
+  # end
 end

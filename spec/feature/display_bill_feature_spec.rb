@@ -21,6 +21,11 @@ feature 'display in bill' do
 
   end
 
-  context 'vouchers' do
+  context 'content order info' do
+
+    it 'name' do
+      expect(bill.order).to
+    end
+
   end
 end
