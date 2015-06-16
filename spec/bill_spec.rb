@@ -3,28 +3,32 @@ require 'bill'
 
 describe Bill do
 
-  context 'content fixed info' do
+  let(:order) { ['Cappuccino', 'Choc Mudcake'] }
+  let(:bill) { described_class.new order }
+
+  context 'fixed content' do
 
     it 'name of place' do
-      expect(subject.coffee_info).to
-      include 'shopName' => 'The Coffee Connection'
+      expect(bill.shop_name).to eq 'The Coffee Connection'
     end
 
     it 'address' do
-      expect(subject.coffee_info).to include 'address' => '123 Lakeside Way'
+      expect(bill.address).to eq '123 Lakeside Way'
     end
 
     it 'phone' do
-      expect(subject.coffee_info).to include 'phone' => '16503600708'
+      expect(bill.phone).to eq '16503600708'
     end
 
   end
 
-  # context 'content order info' do
+  context 'content order info' do
 
-  #   it 'name' do
+    it 'name and price' do
+      bill.items_details
+      expect(bill.items).to include 'Cappuccino' => 3.85
+    end
 
-  #   end
+  end
 
-  # end
 end

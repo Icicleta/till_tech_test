@@ -3,7 +3,7 @@ require_relative 'till'
 
 class Bill
 
-  attr_reader :items
+  attr_reader :items, :order, :item_price
 
   def initialize order
     @order = order
@@ -28,9 +28,9 @@ class Bill
   end
 
   def items_details
-    @order.each do |item|
-      item_price = coffee_info['prices'][0][item]
-      items.store(item, item_price.to_i)
+    order.each do |item|
+      @item_price = coffee_info['prices'][0][item]
+      items.store(item, item_price.to_f)
     end
   end
 
@@ -44,4 +44,5 @@ end
 # bill = Bill.new order
 # # p bill.shop_name
 # bill.items_details
-p bill.items
+# p bill.items
+# p bill.order

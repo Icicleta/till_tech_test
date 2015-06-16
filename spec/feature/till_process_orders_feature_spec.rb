@@ -10,19 +10,19 @@ feature 'user can press orders' do
 
   scenario 'add item to order' do
     # till.stub(:add_item) { 'capuccino' }
-    till.add_item 'capuccino'
-    expect(till.order).to include 'capuccino'
+    till.add_item 'cappuccino'
+    expect(till.order).to include 'cappuccino'
   end
 
   scenario 'can add more than one item' do
-    till.add_item 'capuccino'
+    till.add_item 'cappuccino'
     till.add_item 'banana bread'
-    expect(till.order).to eq ['capuccino', 'banana bread']
+    expect(till.order).to eq ['cappuccino', 'banana bread']
   end
 
   scenario 'can add 2 o more of the same item' do
-    till.add_item 'capuccino'
-    till.add_item 'capuccino'
-    expect(till.order).to eq %w(capuccino capuccino)
+    till.add_item 'cappuccino'
+    till.add_item 'cappuccino'
+    expect(till.order).to eq %w(cappuccino cappuccino)
   end
 end
