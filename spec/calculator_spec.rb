@@ -3,11 +3,15 @@ require 'calculator'
 
 describe Calculator do
 
-  let(:calculator) { described_class.new }
+  let(:calculator) { described_class.new items }
   let(:items) { { "Cappuccino" => 3.85, "Choc Mudcake" => 6.4, "Tea" => 3.65 } }
 
   it 'gets the total to pay' do
-    expect(calculator.total_price items).to eq 13.9
+    expect(calculator.subtotal_price).to eq 13.9
+  end
+
+  it 'applies TAX of 8.64%' do
+    expect(calculator.tax).to eq 1.20
   end
 
 end

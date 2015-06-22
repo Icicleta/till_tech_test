@@ -2,9 +2,18 @@ require_relative 'bill'
 
 class Calculator
 
-  def total_price items
-    items.values.inject(0) { |total, value| total + value }
-    # items.each_value { |value| value += value }
+  TAX_RATE = 0.0864
+
+  def initialize items
+    @items = items
+  end
+
+  def subtotal_price
+    @items.values.inject(0) { |total, value| total + value }
+  end
+
+  def tax
+    (subtotal_price * TAX_RATE).round(2)
   end
 
 end
@@ -22,5 +31,6 @@ end
 # # p bill.order
 # p items
 # calculator = Calculator.new items
-# p calculator.total_price
+# p calculator.subtotal_price
+# p calculator.tax
 
