@@ -16,6 +16,10 @@ class Calculator
     (subtotal_price * TAX_RATE).round(2)
   end
 
+  def total_price
+    subtotal_price + tax
+  end
+
 end
 
 # till = Till.new
